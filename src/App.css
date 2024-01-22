@@ -25,10 +25,35 @@
 
 .question {
   width: 100%;
-  background: linear-gradient(#270241, #000);
+  background: linear-gradient(#1a0591, #0c0231);
   text-align: center;
   padding: 20px;
   border-radius: 10px;
   border: 2px solid #fff;
   font-size: 20px;
+}
+
+.answers {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.answer {
+  width: 40%;
+  padding: 10px;
+  margin: 0 15px 20px 15px;
+  text-align: center;
+  background: linear-gradient(#121112, #200830);
+  border: 1px solid #fff;
+  border-radius: 60px;
+  font-weight: 300;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+.answer:hover,
+.answer.active {
+  background: #091270;
 }
