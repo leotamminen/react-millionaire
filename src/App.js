@@ -2,15 +2,24 @@ import { useState, useEffect } from "react";
 import { MDBRow, MDBCol, MDBListGroup, MDBBtn } from "mdb-react-ui-kit";
 import "./App.css";
 import Quiz from "./components/Quiz";
+import { questions, prizeSums } from "./data";
 
 function App() {
+  const [questionNumber, setQuestionNumber] = useState(1);
+  const [timeOut, setTimeOut] = useState(false);
+
   return (
     <div className="App">
       <MDBRow>
         <MDBCol md="9">
           <div className="main">
             <div style={{ height: "50%" }}>
-              <Quiz />
+              <Quiz
+                questions={questions}
+                questionNumber={questionNumber}
+                setQuestionNumber={setQuestionNumber}
+                setTimeOut={setTimeOut}
+              />
             </div>
           </div>
         </MDBCol>
