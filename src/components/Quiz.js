@@ -6,7 +6,7 @@ const Quiz = ({ questions, questionNumber, setQuestionNumber, setTimeOut }) => {
   const [className, setClassName] = useState("answer");
 
   useEffect(() => {
-    setQuestion(question[questionNumber - 1]);
+    setQuestion(questions[questionNumber - 1]);
   }, [questions, questionNumber]);
 
   return (

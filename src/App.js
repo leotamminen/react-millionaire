@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { MDBRow, MDBCol, MDBListGroup, MDBBtn } from "mdb-react-ui-kit";
 import "./App.css";
 import Quiz from "./components/Quiz";
-import { questions, prizeSums } from "./data";
+import { questions, prizeSums } from "./questions";
 
 function App() {
   const [questionNumber, setQuestionNumber] = useState(1);
