@@ -22,3 +22,13 @@
   align-items: center;
   justify-content: space-around;
 }
+
+.question {
+  width: 100%;
+  background: linear-gradient(#270241, #000);
+  text-align: center;
+  padding: 20px;
+  border-radius: 10px;
+  border: 2px solid #fff;
+  font-size: 20px;
+}
