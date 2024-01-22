@@ -9,7 +9,11 @@ const Quiz = ({ questions, questionNumber, setQuestionNumber, setTimeOut }) => {
     setQuestion(question[questionNumber - 1]);
   }, [questions, questionNumber]);
 
-  return <div>Quiz</div>;
+  return (
+    <div className="quiz">
+      <div className="question">{question?.question}</div>
+    </div>
+  );
 };
 
 export default Quiz;
