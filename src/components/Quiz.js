@@ -12,6 +12,13 @@ const Quiz = ({ questions, questionNumber, setQuestionNumber, setTimeOut }) => {
   return (
     <div className="quiz">
       <div className="question">{question?.question}</div>
+      <div className="answers">
+        {question?.answers.map((item) => (
+          <div className={selectedAnswer === item ? className : "answer"}>
+            {item.text}
+          </div>
+        ))}
+      </div>
     </div>
   );
 };
