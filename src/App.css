@@ -56,6 +56,7 @@
 .answer:hover,
 .answer.active {
   background: #091270;
+  box-shadow: 0 0 5px #fff, 0 0 25px #fff;
 }
 
 .item {
@@ -67,7 +68,8 @@
 }
 
 .item.active {
-  background-color: #096e70;
+  background: radial-gradient(#ff8800, #863c04);
+  box-shadow: 0 0 5px orange, 0 0 25px orange;
 }
 
 .money {
