@@ -13,6 +13,9 @@ function App() {
       <MDBRow>
         <MDBCol md="9">
           <div className="main">
+            <div style={{ height: "50%", position: "relative" }}>
+              <div className="timer">Timer</div>
+            </div>
             <div style={{ height: "50%" }}>
               <Quiz
                 questions={questions}
@@ -23,7 +26,21 @@ function App() {
             </div>
           </div>
         </MDBCol>
-        <MDBCol md="3">Money</MDBCol>
+        <MDBCol md="3" className="money">
+          <MDBListGroup className="money-list">
+            {prizeSums.map((item) => (
+              <>
+                <li
+                  className={
+                    questionNumber === item.id ? "item active" : "item"
+                  }
+                >
+                  <h5 className="amount">{item.amount}</h5>
+                </li>
+              </>
+            ))}
+          </MDBListGroup>
+        </MDBCol>
       </MDBRow>
     </div>
   );

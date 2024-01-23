@@ -57,3 +57,28 @@
 .answer.active {
   background: #091270;
 }
+
+.item {
+  display: inline-block;
+  align-items: center;
+  padding: 5px;
+  border-radius: 5px;
+  width: auto;
+}
+
+.item.active {
+  background-color: #096e70;
+}
+
+.money {
+  background-color: #121112;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.money-list {
+  padding: 25px;
+  list-style: none;
+  width: 100%;
+}
