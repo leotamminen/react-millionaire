@@ -110,6 +110,229 @@ const questions = [
       },
     ],
   },
+  {
+    id: 6,
+    question: "Kenen kuva oli viimeisessä 20 markan setelissä?",
+    answers: [
+      {
+        text: "Aleksis Kiven",
+        correct: false,
+      },
+      {
+        text: "Väinö Linnan",
+        correct: true,
+      },
+      {
+        text: "Paavo Nurmen",
+        correct: false,
+      },
+      {
+        text: "Urho Kekkosen",
+        correct: false,
+      },
+    ],
+  },
+  {
+    id: 7,
+    question: "Montako tuhatta on miljoona?",
+    answers: [
+      {
+        text: "Yksi",
+        correct: false,
+      },
+      {
+        text: "Kymmenen",
+        correct: false,
+      },
+      {
+        text: "Sata",
+        correct: false,
+      },
+      {
+        text: "Tuhat",
+        correct: true,
+      },
+    ],
+  },
+  {
+    id: 8,
+    question: "Millä nimellä muusikko Petri Tiili tunnetaan paremmin?",
+    answers: [
+      {
+        text: "Neumann",
+        correct: false,
+      },
+      {
+        text: "Pelle Miljoona",
+        correct: true,
+      },
+      {
+        text: "Paleface",
+        correct: false,
+      },
+      {
+        text: "Andy McCoy",
+        correct: false,
+      },
+    ],
+  },
+  {
+    id: 9,
+    question: "Minkä lajin legendaarisia nimiä on Kareem Abdul-Jabbar?",
+    answers: [
+      {
+        text: "Koripallon",
+        correct: true,
+      },
+      {
+        text: "Baseballin",
+        correct: false,
+      },
+      {
+        text: "Golfin",
+        correct: false,
+      },
+      {
+        text: "Nyrkkeilyn",
+        correct: false,
+      },
+    ],
+  },
+  {
+    id: 10,
+    question: "Mikä on Ruotsin pääkaupunki?",
+    answers: [
+      {
+        text: "Tuklehtinen",
+        correct: false,
+      },
+      {
+        text: "Tuklinga",
+        correct: false,
+      },
+      {
+        text: "Tuklinnonmaa",
+        correct: false,
+      },
+      {
+        text: "Tukholma",
+        correct: true,
+      },
+    ],
+  },
+  {
+    id: 11,
+    question: "Missä kaupungissa sijaitsee kuuluisa Yyterin hiekkaranta?",
+    answers: [
+      {
+        text: "Lahdessa",
+        correct: false,
+      },
+      {
+        text: "Kemissä",
+        correct: false,
+      },
+      {
+        text: "Porissa",
+        correct: true,
+      },
+      {
+        text: "Tampereella",
+        correct: false,
+      },
+    ],
+  },
+  {
+    id: 12,
+    question:
+      "Kuka on kirjoittanut historiallisen romaanin Sinuhe Egyptiläinen?",
+    answers: [
+      {
+        text: "Volter Kilpi",
+        correct: false,
+      },
+      {
+        text: "Katri Vala",
+        correct: false,
+      },
+      {
+        text: "Mika Waltari",
+        correct: true,
+      },
+      {
+        text: "Frans Emil Sillanpää",
+        correct: false,
+      },
+    ],
+  },
+  {
+    id: 13,
+    question:
+      "Kuka on maalannut Teuvan kirkon alttaritaulun Kymmenen neitsyttä?",
+    answers: [
+      {
+        text: "Tove Jansson",
+        correct: true,
+      },
+      {
+        text: "Outi Heiskanen",
+        correct: false,
+      },
+      {
+        text: "Hugo Simberg",
+        correct: false,
+      },
+      {
+        text: "Helene Schjerfbeck",
+        correct: false,
+      },
+    ],
+  },
+  {
+    id: 14,
+    question: "Minkä eläimen tieteellinen nimi on Canis lupus?",
+    answers: [
+      {
+        text: "Hirvi",
+        correct: false,
+      },
+      {
+        text: "Ilves",
+        correct: false,
+      },
+      {
+        text: "Kettu",
+        correct: false,
+      },
+      {
+        text: "Susi",
+        correct: true,
+      },
+    ],
+  },
+  {
+    id: 15,
+    question:
+      "Missä paikassa Auric Goldfinger suunnittelee räjäyttävänsä ydinpommin elokuvassa 007 ja kultasormi?",
+    answers: [
+      {
+        text: "Fort Knox",
+        correct: true,
+      },
+      {
+        text: "Pentagon",
+        correct: false,
+      },
+      {
+        text: "Buckinghamin palatsi",
+        correct: false,
+      },
+      {
+        text: "Sydneyn oopperatalo",
+        correct: false,
+      },
+    ],
+  },
 ];
 
 // all 15 available prizesums
