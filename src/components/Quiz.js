@@ -9,12 +9,27 @@ const Quiz = ({ questions, questionNumber, setQuestionNumber, setTimeOut }) => {
     setQuestion(questions[questionNumber - 1]);
   }, [questions, questionNumber]);
 
+  const handleClick = (item) => {
+    setSelectedAnswer(item);
+    setClassName("answer active");
+
+    setTimeOut(() => {
+      setClassName(
+        item.correct ? "answer was correct" : "answer was incorrect"
+      );
+    }, 3000);
+  };
+
   return (
     <div className="quiz">
       <div className="question">{question?.question}</div>
       <div className="answers">
         {question?.answers.map((item) => (
-          <div className={selectedAnswer === item ? className : "answer"}>
+          <div
+            className={selectedAnswer === item ? className : "answer"}
+            // can select answer if not selected already
+            onClick={() => !selectedAnswer && handleClick(item)}
+          >
             {item.text}
           </div>
         ))}

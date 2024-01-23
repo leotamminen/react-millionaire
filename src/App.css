@@ -59,6 +59,50 @@
   box-shadow: 0 0 5px #805404, 0 0 15px #643908, 0 0 25px #e9a456;
 }
 
+.answer.correct {
+  animation: correct 3s ease forwards;
+}
+
+@keyframes correct {
+  0%,
+  25%,
+  45% {
+    background: #ca6608;
+    box-shadow: 0 0 5px #805404, 0 0 15px #643908, 0 0 25px #e9a456;
+  }
+  20%,
+  40%,
+  60% {
+    background: linear-gradient(#160357, #310dd1);
+  }
+  65%,
+  100% {
+    background: #10a742;
+  }
+}
+
+.answer.incorrect {
+  animation: incorrect 3s ease forwards;
+}
+
+@keyframes incorrect {
+  0%,
+  25%,
+  45% {
+    background: #ca6608;
+    box-shadow: 0 0 5px #805404, 0 0 15px #643908, 0 0 25px #e9a456;
+  }
+  20%,
+  40%,
+  60% {
+    background: linear-gradient(#160357, #310dd1);
+  }
+  65%,
+  100% {
+    background: #bb280f;
+  }
+}
+
 .item {
   display: inline-block;
   align-items: center;
