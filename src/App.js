@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { MDBRow, MDBCol, MDBListGroup, MDBBtn } from "mdb-react-ui-kit";
 import "./App.css";
 import Quiz from "./components/Quiz";
+import Timer from "./components/Timer";
 import { questions, prizeSums } from "./questions";
 
 function App() {
@@ -14,7 +15,12 @@ function App() {
         <MDBCol md="9">
           <div className="main">
             <div style={{ height: "50%", position: "relative" }}>
-              <div className="timer">Timer</div>
+              <div className="timer">
+                <Timer
+                  setTimeOut={setTimeOut}
+                  questionNumber={questionNumber}
+                />
+              </div>
             </div>
             <div style={{ height: "50%" }}>
               <Quiz
