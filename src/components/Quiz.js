@@ -1,13 +1,28 @@
 import React, { useState, useEffect } from "react";
+import useSound from "use-sound";
+import Background_music from "../assets/Background_music.mp3";
+import fiveToEight from "../assets/five-eight.mp3";
 
 const Quiz = ({ questions, questionNumber, setQuestionNumber, setTimeOut }) => {
   const [question, setQuestion] = useState(null);
   const [selectedAnswer, setSelectedAnswer] = useState(null);
   const [className, setClassName] = useState("answer");
+  // Sounds
+  const [startPlaying] = useSound(Background_music);
+  const [RoundsFiveToEight] = useSound(fiveToEight);
 
   useEffect(() => {
     setQuestion(questions[questionNumber - 1]);
   }, [questions, questionNumber]);
+
+  useEffect(() => {
+    if (questionNumber < 2) {
+      startPlaying();
+    }
+    if (questionNumber > 2) {
+      RoundsFiveToEight();
+    }
+  }, [startPlaying, RoundsFiveToEight, questionNumber]);
 
   // Delays the execution of a callback function for any given time
   const delay = (duration, callBack) => {
