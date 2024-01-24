@@ -9,28 +9,26 @@ const Quiz = ({ questions, questionNumber, setQuestionNumber, setTimeOut }) => {
     setQuestion(questions[questionNumber - 1]);
   }, [questions, questionNumber]);
 
+  // Delays the execution of a callback function for any given time
+  const delay = (duration, callBack) => {
+    setTimeout(() => {
+      callBack();
+    }, duration);
+  };
+
   // Handles the click for answers
   const handleClick = (item) => {
     setSelectedAnswer(item);
     setClassName("answer active");
 
-    // Delays the execution of a callback function for any given time
-    const delay = (duration, callBack) => {
-      setTimeOut(() => {
-        callBack();
-      }, duration);
-    };
-
     delay(3000, () => {
-      setClassName(
-        item.correct ? "answer was correct" : "answer was incorrect"
-      );
+      setClassName(item.correct ? "answer correct" : "answer incorrect");
     });
 
     delay(5000, () => {
       if (item.correct) {
-        // Delays moving to the next question after 5 sec
-        delay(5000, () => {
+        // Delays moving to the next question after 1 sec
+        delay(1000, () => {
           setQuestionNumber((prev) => prev + 1);
           setSelectedAnswer(null);
         });
