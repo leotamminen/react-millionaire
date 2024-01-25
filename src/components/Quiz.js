@@ -103,6 +103,12 @@ const Quiz = ({ questions, questionNumber, setQuestionNumber, setTimeOut }) => {
     });
   };
 
+  // Handles the "Lock In Answer" button click
+  const handleLockIn = () => {
+    // Add your logic for handling the "Lock In Answer" action here
+    console.log("Locking in the answer!");
+  };
+
   return (
     <div className="quiz">
       <div className="question">{question?.question}</div>
@@ -117,6 +123,9 @@ const Quiz = ({ questions, questionNumber, setQuestionNumber, setTimeOut }) => {
           </div>
         ))}
       </div>
+      <button className="lock-in-button" onClick={handleLockIn}>
+        Lukitse vastaus
+      </button>
     </div>
   );
 };
