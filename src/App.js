@@ -8,6 +8,7 @@ import { questions, prizeSums } from "./questions";
 function App() {
   const [questionNumber, setQuestionNumber] = useState(1);
   const [timeOut, setTimeOut] = useState(false);
+  const [answersLocked, setAnswersLocked] = useState(false);
 
   return (
     <div className="App">
@@ -19,6 +20,7 @@ function App() {
                 <Timer
                   setTimeOut={setTimeOut}
                   questionNumber={questionNumber}
+                  answersLocked={answersLocked}
                 />
               </div>
             </div>
@@ -28,6 +30,7 @@ function App() {
                 questionNumber={questionNumber}
                 setQuestionNumber={setQuestionNumber}
                 setTimeOut={setTimeOut}
+                setAnswersLocked={setAnswersLocked}
               />
             </div>
           </div>

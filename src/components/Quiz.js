@@ -11,6 +11,7 @@ const Quiz = ({ questions, questionNumber, setQuestionNumber, setTimeOut }) => {
   const [question, setQuestion] = useState(null);
   const [selectedAnswer, setSelectedAnswer] = useState(null);
   const [className, setClassName] = useState("answer");
+  const [answersLocked, setAnswersLocked] = useState(false);
 
   // refs for various audio tracks
   const audioRefs = {
@@ -24,7 +25,7 @@ const Quiz = ({ questions, questionNumber, setQuestionNumber, setTimeOut }) => {
     // TODO: add correct/incorrect sounds, maybe lock in answer
   };
 
-  // Better way to play multiple audios. Plays song for round and stops and resets all other audio tracks
+  // Better way to play multiple audios. Plays song for the round and stops and resets all other audio tracks
   const playAudio = (audioRef) => {
     Object.values(audioRefs).forEach((ref) => {
       if (ref.current !== audioRef.current) {
@@ -81,43 +82,70 @@ const Quiz = ({ questions, questionNumber, setQuestionNumber, setTimeOut }) => {
 
   // Handles the click for answers
   const handleClick = (item) => {
-    setSelectedAnswer(item);
-    setClassName("answer active");
-
-    delay(3000, () => {
-      setClassName(item.correct ? "answer correct" : "answer incorrect");
-    });
-
-    delay(5000, () => {
-      if (item.correct) {
-        // Delays moving to the next question after 1 sec
-        delay(1000, () => {
-          setQuestionNumber((prev) => prev + 1);
-          setSelectedAnswer(null);
-        });
-      } else {
-        delay(1000, () => {
-          setTimeOut(true);
-        });
-      }
-    });
+    if (!answersLocked) {
+      setSelectedAnswer((prevSelectedAnswer) =>
+        prevSelectedAnswer === item ? null : item
+      );
+      setClassName("answer active");
+    } else {
+      console.log("Answers are locked!");
+    }
   };
 
-  // Handles the "Lock In Answer" button click
+  // Handle "Lock In Answer" button
   const handleLockIn = () => {
-    // Add your logic for handling the "Lock In Answer" action here
-    console.log("Locking in the answer!");
+    if (!answersLocked) {
+      // If no answer is locked in, lock the current selected answer
+      setAnswersLocked(true); // Lock answers to prevent multiple clicks
+
+      // Delay for animation
+      delay(3000, () => {
+        if (selectedAnswer) {
+          // If an answer is selected
+          // Set the className only for the selected answer
+          setClassName(
+            selectedAnswer.correct ? "answer correct" : "answer incorrect"
+          );
+
+          // If the locked in answer is correct, move to the next question after 1 sec
+          if (selectedAnswer.correct) {
+            delay(1000, () => {
+              setQuestionNumber((prev) => prev + 1);
+              setSelectedAnswer(null);
+              setClassName("answer");
+              setAnswersLocked(false); // Unlock answers for the next question
+            });
+          } else {
+            // If the locked in answer is incorrect, reset className for the incorrect answer after 1 sec
+            delay(1000, () => {
+              setClassName("answer");
+              setAnswersLocked(false); // Unlock answers for the next question
+            });
+          }
+        }
+      });
+    } else {
+      // If answers are already locked, console log
+      console.log("Answers are already locked!");
+    }
   };
 
   return (
     <div className="quiz">
       <div className="question">{question?.question}</div>
-      <div className="answers">
+      <div className={`answers ${answersLocked ? "answers-locked" : ""}`}>
         {question?.answers.map((item) => (
           <div
-            className={selectedAnswer === item ? className : "answer"}
-            // can select answer if not selected already
-            onClick={() => !selectedAnswer && handleClick(item)}
+            className={`${
+              answersLocked
+                ? item.correct
+                  ? "answer correct"
+                  : "answer incorrect"
+                : selectedAnswer === item
+                ? "answer active"
+                : "answer"
+            }`}
+            onClick={() => !answersLocked && handleClick(item)}
           >
             {item.text}
           </div>
