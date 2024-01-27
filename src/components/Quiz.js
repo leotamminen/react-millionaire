@@ -92,22 +92,21 @@ const Quiz = ({ questions, questionNumber, setQuestionNumber, setTimeOut }) => {
     }
   };
 
-  // Handle "Lock In Answer" button
+  // Handles the "Lock In Answer" button click
   const handleLockIn = () => {
     if (!answersLocked) {
       // If no answer is locked in, lock the current selected answer
       setAnswersLocked(true); // Lock answers to prevent multiple clicks
 
-      // Delay for animation
-      delay(3000, () => {
-        if (selectedAnswer) {
-          // If an answer is selected
-          // Set the className only for the selected answer
+      if (selectedAnswer) {
+        // If an answer is selected
+        // Set the className only for the selected answer with a 3-second delay for the main animation
+        delay(3000, () => {
           setClassName(
             selectedAnswer.correct ? "answer correct" : "answer incorrect"
           );
 
-          // If the locked in answer is correct, move to the next question after 1 sec
+          // If the locked-in answer is correct, move to the next question after 1 sec
           if (selectedAnswer.correct) {
             delay(1000, () => {
               setQuestionNumber((prev) => prev + 1);
@@ -116,14 +115,14 @@ const Quiz = ({ questions, questionNumber, setQuestionNumber, setTimeOut }) => {
               setAnswersLocked(false); // Unlock answers for the next question
             });
           } else {
-            // If the locked in answer is incorrect, reset className for the incorrect answer after 1 sec
+            // If the locked-in answer is incorrect, reset className for the incorrect answer after 1 sec
             delay(1000, () => {
               setClassName("answer");
               setAnswersLocked(false); // Unlock answers for the next question
             });
           }
-        }
-      });
+        });
+      }
     } else {
       // If answers are already locked, console log
       console.log("Answers are already locked!");
@@ -138,9 +137,11 @@ const Quiz = ({ questions, questionNumber, setQuestionNumber, setTimeOut }) => {
           <div
             className={`${
               answersLocked
-                ? item.correct
-                  ? "answer correct"
-                  : "answer incorrect"
+                ? item === selectedAnswer
+                  ? item.correct
+                    ? "answer correct"
+                    : "answer incorrect"
+                  : "answer"
                 : selectedAnswer === item
                 ? "answer active"
                 : "answer"
