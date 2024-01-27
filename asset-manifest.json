@@ -1,0 +1,23 @@
+{
+  "files": {
+    "main.css": "/react-millionaire/static/css/main.145073e9.css",
+    "main.js": "/react-millionaire/static/js/main.b805721f.js",
+    "static/js/787.badf6a8a.chunk.js": "/react-millionaire/static/js/787.badf6a8a.chunk.js",
+    "static/media/fourteen.mp3": "/react-millionaire/static/media/fourteen.5e91425ccb897e90117f.mp3",
+    "static/media/eleven-thirteen.mp3": "/react-millionaire/static/media/eleven-thirteen.761548d3ff8c6efa8107.mp3",
+    "static/media/fifteen.mp3": "/react-millionaire/static/media/fifteen.e65c56208598f4eb92c0.mp3",
+    "static/media/eight-eleven.mp3": "/react-millionaire/static/media/eight-eleven.7f100fb10ea8c6385efa.mp3",
+    "static/media/five-eight.mp3": "/react-millionaire/static/media/five-eight.7c713d073f3d206629a3.mp3",
+    "static/media/Background_music.mp3": "/react-millionaire/static/media/Background_music.905a21fab4e92442be92.mp3",
+    "static/media/MillionaireRave.mp3": "/react-millionaire/static/media/MillionaireRave.71b64a728e68c84cc1bc.mp3",
+    "static/media/background.jpg": "/react-millionaire/static/media/background.8b0bb5957b1be32eaadd.jpg",
+    "index.html": "/react-millionaire/index.html",
+    "main.145073e9.css.map": "/react-millionaire/static/css/main.145073e9.css.map",
+    "main.b805721f.js.map": "/react-millionaire/static/js/main.b805721f.js.map",
+    "787.badf6a8a.chunk.js.map": "/react-millionaire/static/js/787.badf6a8a.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.145073e9.css",
+    "static/js/main.b805721f.js"
+  ]
+}
