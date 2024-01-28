@@ -95,43 +95,49 @@ const Quiz = ({ questions, questionNumber, setQuestionNumber, setTimeOut }) => {
 
   // Handles the "Lock In Answer" button click
   const handleLockIn = () => {
-    if (!answersLocked) {
-      // If no answer is locked in, lock the current selected answer
-      setAnswersLocked(true); // Lock answers to prevent multiple clicks
-
-      if (selectedAnswer) {
-        // If an answer is selected
-        // Set the className only for the selected answer with a 3-second delay for the main animation
-        delay(3000, () => {
-          setClassName(
-            selectedAnswer.correct ? "answer correct" : "answer incorrect"
-          );
-
-          console.log("Selected Answer:", selectedAnswer);
-
-          // If the locked-in answer is correct, move to the next question after 1 sec
-          if (selectedAnswer.correct) {
-            delay(1000, () => {
-              setQuestionNumber((prev) => prev + 1);
-              setSelectedAnswer(null);
-              setClassName("answer");
-              setAnswersLocked(false); // Unlock answers for the next question
-            });
-          } else {
-            // If the locked-in answer is incorrect, reset className for the incorrect answer after 1 sec
-            delay(1000, () => {
-              setClassName("answer");
-              setAnswersLocked(false); // Unlock answers for the next question
-              console.log("Answer was wrong!!!!");
-              // Set the timeOut state to true to trigger "game over" message
-              setTimeOut(true);
-            });
-          }
-        });
-      }
+    if (!selectedAnswer) {
+      // Can not lock in if answer is not selected
+      alert("Please select an answer before locking in!");
+      console.log("Select answer before locking in!");
     } else {
-      // If answers are already locked, console log
-      console.log("Answers are already locked!");
+      if (!answersLocked) {
+        // If no answer is locked in, lock the current selected answer
+        setAnswersLocked(true); // Lock answers to prevent multiple clicks
+
+        if (selectedAnswer) {
+          // If an answer is selected
+          // Set the className only for the selected answer with a 3-second delay for the main animation
+          delay(3000, () => {
+            setClassName(
+              selectedAnswer.correct ? "answer correct" : "answer incorrect"
+            );
+
+            console.log("Selected Answer:", selectedAnswer);
+
+            // If the locked-in answer is correct, move to the next question after 1 sec
+            if (selectedAnswer.correct) {
+              delay(1000, () => {
+                setQuestionNumber((prev) => prev + 1);
+                setSelectedAnswer(null);
+                setClassName("answer");
+                setAnswersLocked(false); // Unlock answers for the next question
+              });
+            } else {
+              // If the locked-in answer is incorrect, reset className for the incorrect answer after 1 sec
+              delay(1000, () => {
+                setClassName("answer");
+                setAnswersLocked(false); // Unlock answers for the next question
+                console.log("Answer was wrong!!!!");
+                // Set the timeOut state to true to trigger "game over" message
+                setTimeOut(true);
+              });
+            }
+          });
+        }
+      } else {
+        // If answers are already locked, console log
+        console.log("Answers are already locked!");
+      }
     }
   };
 
