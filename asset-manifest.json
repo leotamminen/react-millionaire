@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/react-millionaire/static/css/main.145073e9.css",
-    "main.js": "/react-millionaire/static/js/main.e8a2d94a.js",
+    "main.css": "/react-millionaire/static/css/main.179d17c2.css",
+    "main.js": "/react-millionaire/static/js/main.2a34f2c9.js",
     "static/js/787.badf6a8a.chunk.js": "/react-millionaire/static/js/787.badf6a8a.chunk.js",
     "static/media/fourteen.mp3": "/react-millionaire/static/media/fourteen.5e91425ccb897e90117f.mp3",
     "static/media/eleven-thirteen.mp3": "/react-millionaire/static/media/eleven-thirteen.761548d3ff8c6efa8107.mp3",
@@ -12,12 +12,12 @@
     "static/media/MillionaireRave.mp3": "/react-millionaire/static/media/MillionaireRave.71b64a728e68c84cc1bc.mp3",
     "static/media/background.jpg": "/react-millionaire/static/media/background.8b0bb5957b1be32eaadd.jpg",
     "index.html": "/react-millionaire/index.html",
-    "main.145073e9.css.map": "/react-millionaire/static/css/main.145073e9.css.map",
-    "main.e8a2d94a.js.map": "/react-millionaire/static/js/main.e8a2d94a.js.map",
+    "main.179d17c2.css.map": "/react-millionaire/static/css/main.179d17c2.css.map",
+    "main.2a34f2c9.js.map": "/react-millionaire/static/js/main.2a34f2c9.js.map",
     "787.badf6a8a.chunk.js.map": "/react-millionaire/static/js/787.badf6a8a.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.145073e9.css",
-    "static/js/main.e8a2d94a.js"
+    "static/css/main.179d17c2.css",
+    "static/js/main.2a34f2c9.js"
   ]
 }
