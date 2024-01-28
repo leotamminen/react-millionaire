@@ -87,6 +87,7 @@ const Quiz = ({ questions, questionNumber, setQuestionNumber, setTimeOut }) => {
         prevSelectedAnswer === item ? null : item
       );
       setClassName("answer active");
+      console.log(selectedAnswer);
     } else {
       console.log("Answers are locked!");
     }
@@ -106,6 +107,8 @@ const Quiz = ({ questions, questionNumber, setQuestionNumber, setTimeOut }) => {
             selectedAnswer.correct ? "answer correct" : "answer incorrect"
           );
 
+          console.log("Selected Answer:", selectedAnswer);
+
           // If the locked-in answer is correct, move to the next question after 1 sec
           if (selectedAnswer.correct) {
             delay(1000, () => {
@@ -119,6 +122,9 @@ const Quiz = ({ questions, questionNumber, setQuestionNumber, setTimeOut }) => {
             delay(1000, () => {
               setClassName("answer");
               setAnswersLocked(false); // Unlock answers for the next question
+              console.log("Answer was wrong!!!!");
+              // Set the timeOut state to true to trigger "game over" message
+              setTimeOut(true);
             });
           }
         });
