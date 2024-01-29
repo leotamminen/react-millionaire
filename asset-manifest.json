@@ -1,23 +1,23 @@
 {
   "files": {
-    "main.css": "/react-millionaire/static/css/main.179d17c2.css",
-    "main.js": "/react-millionaire/static/js/main.2fff307e.js",
-    "static/js/787.badf6a8a.chunk.js": "/react-millionaire/static/js/787.badf6a8a.chunk.js",
-    "static/media/fourteen.mp3": "/react-millionaire/static/media/fourteen.5e91425ccb897e90117f.mp3",
-    "static/media/eleven-thirteen.mp3": "/react-millionaire/static/media/eleven-thirteen.761548d3ff8c6efa8107.mp3",
-    "static/media/fifteen.mp3": "/react-millionaire/static/media/fifteen.e65c56208598f4eb92c0.mp3",
-    "static/media/eight-eleven.mp3": "/react-millionaire/static/media/eight-eleven.7f100fb10ea8c6385efa.mp3",
-    "static/media/five-eight.mp3": "/react-millionaire/static/media/five-eight.7c713d073f3d206629a3.mp3",
-    "static/media/Background_music.mp3": "/react-millionaire/static/media/Background_music.905a21fab4e92442be92.mp3",
-    "static/media/MillionaireRave.mp3": "/react-millionaire/static/media/MillionaireRave.71b64a728e68c84cc1bc.mp3",
-    "static/media/background.jpg": "/react-millionaire/static/media/background.8b0bb5957b1be32eaadd.jpg",
-    "index.html": "/react-millionaire/index.html",
-    "main.179d17c2.css.map": "/react-millionaire/static/css/main.179d17c2.css.map",
-    "main.2fff307e.js.map": "/react-millionaire/static/js/main.2fff307e.js.map",
-    "787.badf6a8a.chunk.js.map": "/react-millionaire/static/js/787.badf6a8a.chunk.js.map"
+    "main.css": "/static/css/main.0c3a4a5c.css",
+    "main.js": "/static/js/main.11e05ce4.js",
+    "static/js/512.29f0d401.chunk.js": "/static/js/512.29f0d401.chunk.js",
+    "static/media/fourteen.mp3": "/static/media/fourteen.5e91425ccb897e90117f.mp3",
+    "static/media/eleven-thirteen.mp3": "/static/media/eleven-thirteen.761548d3ff8c6efa8107.mp3",
+    "static/media/fifteen.mp3": "/static/media/fifteen.e65c56208598f4eb92c0.mp3",
+    "static/media/eight-eleven.mp3": "/static/media/eight-eleven.7f100fb10ea8c6385efa.mp3",
+    "static/media/five-eight.mp3": "/static/media/five-eight.7c713d073f3d206629a3.mp3",
+    "static/media/Background_music.mp3": "/static/media/Background_music.905a21fab4e92442be92.mp3",
+    "static/media/MillionaireRave.mp3": "/static/media/MillionaireRave.71b64a728e68c84cc1bc.mp3",
+    "static/media/background.jpg": "/static/media/background.8b0bb5957b1be32eaadd.jpg",
+    "index.html": "/index.html",
+    "main.0c3a4a5c.css.map": "/static/css/main.0c3a4a5c.css.map",
+    "main.11e05ce4.js.map": "/static/js/main.11e05ce4.js.map",
+    "512.29f0d401.chunk.js.map": "/static/js/512.29f0d401.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.179d17c2.css",
-    "static/js/main.2fff307e.js"
+    "static/css/main.0c3a4a5c.css",
+    "static/js/main.11e05ce4.js"
   ]
 }
