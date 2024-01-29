@@ -1,13 +1,36 @@
-const express = require("express");
-const app = express();
-const PORT = process.env.PORT || 5000;
+const { questions } = require("../frontend/src/questions");
+const { MongoClient } = require("mongodb");
+require("dotenv").config();
 
-// Define routes
-app.get("/", (req, res) => {
-  res.send("Hello from Express!");
-});
+// Connection URI
+const uri = `mongodb+srv://${process.env.MONGODB_USERNAME}:${process.env.MONGODB_PASSWORD}@${process.env.MONGODB_CLUSTER}/questionsDB?retryWrites=true&w=majority`;
 
-// Start the server
-app.listen(PORT, () => {
-  console.log(`Server is running on port ${PORT}`);
-});
+// Create a new MongoClient
+const client = new MongoClient(uri);
+
+async function main() {
+  try {
+    // Connect to the MongoDB cluster
+    await client.connect();
+
+    console.log("Connected to the database");
+
+    // Use the client to perform operations
+    const database = client.db("questionsDB");
+    const collection = database.collection("questionsCollection");
+
+    // Insert each question into the collection
+    await Promise.all(
+      questions.map(async (question) => {
+        await collection.insertOne(question);
+        console.log(`Inserted question with ID ${question.id}`);
+      })
+    );
+  } finally {
+    // Close the connection
+    await client.close();
+  }
+}
+
+// Call the main function to establish the connection
+main().catch(console.error);

@@ -354,4 +354,5 @@ const prizeSums = [
   { id: 15, amount: "1 000 000 €" },
 ].reverse();
 
-export { prizeSums, questions };
+// works with the backend
+module.exports = { prizeSums, questions };
