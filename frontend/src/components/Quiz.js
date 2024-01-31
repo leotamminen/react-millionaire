@@ -7,7 +7,7 @@ import fourteen from "../assets/fourteen.mp3";
 import fifteen from "../assets/fifteen.mp3";
 import millionaireRave from "../assets/MillionaireRave.mp3";
 
-const Quiz = ({ questions, questionNumber, setQuestionNumber, setTimeOut }) => {
+const Quiz = ({ questionNumber, setQuestionNumber, setTimeOut }) => {
   const [question, setQuestion] = useState(null);
   const [selectedAnswer, setSelectedAnswer] = useState(null);
   const [className, setClassName] = useState("answer");
@@ -70,8 +70,23 @@ const Quiz = ({ questions, questionNumber, setQuestionNumber, setTimeOut }) => {
 
   // Update the current question when the question number changes
   useEffect(() => {
-    setQuestion(questions[questionNumber - 1]);
-  }, [questions, questionNumber]);
+    // Fetch question data from the backend API
+    fetch("http://localhost:4000/api/questions")
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error("Network response was not ok");
+        }
+        return response.text(); // Parse response as text
+      })
+      .then((text) => {
+        // Parse the JSON string stored in the "data" global variable
+        const jsonData = JSON.parse(window.data || text); // Fallback to response text if "data" is not defined
+        setQuestion(jsonData[questionNumber - 1]);
+      })
+      .catch((error) => {
+        console.error("Error fetching questions:", error);
+      });
+  }, [questionNumber]);
 
   // Delays the execution of a callback function for any given time
   const delay = (duration, callBack) => {

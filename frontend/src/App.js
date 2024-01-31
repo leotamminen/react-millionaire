@@ -4,7 +4,7 @@ import "./App.css";
 import GameOver from "./components/GameOver";
 import Quiz from "./components/Quiz";
 import Timer from "./components/Timer";
-import { questions, prizeSums } from "./questions";
+import { prizeSums } from "./questions"; // Import prizeSums from questions.js
 
 function App() {
   const [questionNumber, setQuestionNumber] = useState(1);
@@ -31,7 +31,6 @@ function App() {
                 </div>
                 <div style={{ height: "50%" }}>
                   <Quiz
-                    questions={questions}
                     questionNumber={questionNumber}
                     setQuestionNumber={setQuestionNumber}
                     setTimeOut={setTimeOut}
@@ -45,15 +44,12 @@ function App() {
         <MDBCol md="3" className="money">
           <MDBListGroup className="money-list">
             {prizeSums.map((item) => (
-              <>
-                <li
-                  className={
-                    questionNumber === item.id ? "item active" : "item"
-                  }
-                >
-                  <h5 className="amount">{item.amount}</h5>
-                </li>
-              </>
+              <li
+                key={item.id}
+                className={questionNumber === item.id ? "item active" : "item"}
+              >
+                <h5 className="amount">{item.amount}</h5>
+              </li>
             ))}
           </MDBListGroup>
         </MDBCol>
