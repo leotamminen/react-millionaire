@@ -2,24 +2,10 @@
 import React from "react";
 
 function GameOver({ className }) {
-  // Function for refreshing the page when the text "tästä" or "here" is clicked.
-  const refreshPage = () => {
-    window.location.reload();
-  };
-
   return (
     <div className={className}>
-      <h1>Peli loppui</h1>
-      <p>
-        Voit yrittää uudestaan painamalla{" "}
-        <span
-          style={{ textDecoration: "underline", cursor: "pointer" }}
-          onClick={refreshPage}
-        >
-          tästä
-        </span>{" "}
-        tai päivittämällä sivun.
-      </p>
+      <h1>Game Over</h1>
+      <p>You can try again by refreshing the page!</p>
     </div>
   );
 }
