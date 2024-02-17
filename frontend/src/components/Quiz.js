@@ -87,7 +87,7 @@ const Quiz = ({ questions, questionNumber, setQuestionNumber, setTimeOut }) => {
         prevSelectedAnswer === item ? null : item
       );
       setClassName("answer active");
-      console.log(selectedAnswer);
+      console.log("Selected answer:", selectedAnswer); // This works fine but the logging is "late"
     } else {
       console.log("Answers are locked!");
     }
