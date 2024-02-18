@@ -7,7 +7,13 @@ import fourteen from "../assets/fourteen.mp3";
 import fifteen from "../assets/fifteen.mp3";
 import millionaireRave from "../assets/MillionaireRave.mp3";
 
-const Quiz = ({ questions, questionNumber, setQuestionNumber, setTimeOut }) => {
+const Quiz = ({
+  questions,
+  questionNumber,
+  setQuestionNumber,
+  setTimeOut,
+  handleBecomeMillionaire,
+}) => {
   const [question, setQuestion] = useState(null);
   const [selectedAnswer, setSelectedAnswer] = useState(null);
   const [className, setClassName] = useState("answer");
@@ -79,6 +85,11 @@ const Quiz = ({ questions, questionNumber, setQuestionNumber, setTimeOut }) => {
       callBack();
     }, duration);
   };
+
+  // Call handleBecomeMillionaire function when becoming a millionaire
+  if (questionNumber > 15) {
+    handleBecomeMillionaire();
+  }
 
   // Handles the click for answers
   const handleClick = (item) => {

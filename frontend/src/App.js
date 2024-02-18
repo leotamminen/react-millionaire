@@ -1,29 +1,24 @@
-import { useState, useEffect } from "react";
-import { MDBRow, MDBCol, MDBListGroup } from "mdb-react-ui-kit";
+import React, { useState } from "react";
+import { MDBRow, MDBCol, MDBListGroup, MDBBtn } from "mdb-react-ui-kit";
 import "./App.css";
 import GameOver from "./components/GameOver";
+import GameWinner from "./components/GameWinner";
 import Quiz from "./components/Quiz";
 import Timer from "./components/Timer";
-import GameWinner from "./components/GameWinner";
 import { questions, prizeSums } from "./questions";
 
 function App() {
   const [questionNumber, setQuestionNumber] = useState(1);
   const [timeOut, setTimeOut] = useState(false);
   const [answersLocked, setAnswersLocked] = useState(false);
-  const [millionaire, setMillionaire] = useState(false);
+  const [isMillionaire, setIsMillionaire] = useState(false);
 
-  // Function to handle becoming a millionaire
+  // Define a function to update isMillionaire state
   const handleBecomeMillionaire = () => {
-    setMillionaire(true);
+    setIsMillionaire(true);
   };
 
-  // Check if the player becomes a millionaire when reaching question number 16 (>15)
-  useEffect(() => {
-    if (questionNumber > 15) {
-      setMillionaire(true);
-    }
-  }, [questionNumber]);
+  console.log("isMillionaire:", isMillionaire); // Add console log here
 
   return (
     <div className="App">
@@ -32,8 +27,8 @@ function App() {
           <div className="main">
             {timeOut ? (
               <GameOver className="game-over" />
-            ) : millionaire ? (
-              <GameWinner />
+            ) : isMillionaire ? (
+              <GameWinner className="game-over" />
             ) : (
               <>
                 <div style={{ height: "50%", position: "relative" }}>
@@ -52,7 +47,7 @@ function App() {
                     setQuestionNumber={setQuestionNumber}
                     setTimeOut={setTimeOut}
                     setAnswersLocked={setAnswersLocked}
-                    onBecomeMillionaire={handleBecomeMillionaire}
+                    handleBecomeMillionaire={handleBecomeMillionaire}
                   />
                 </div>
               </>
@@ -62,12 +57,15 @@ function App() {
         <MDBCol md="3" className="money">
           <MDBListGroup className="money-list">
             {prizeSums.map((item) => (
-              <li
-                key={item.id}
-                className={questionNumber === item.id ? "item active" : "item"}
-              >
-                <h5 className="amount">{item.amount}</h5>
-              </li>
+              <>
+                <li
+                  className={
+                    questionNumber === item.id ? "item active" : "item"
+                  }
+                >
+                  <h5 className="amount">{item.amount}</h5>
+                </li>
+              </>
             ))}
           </MDBListGroup>
         </MDBCol>
