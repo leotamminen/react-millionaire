@@ -30,3 +30,19 @@ Currently in the projects `/frontend` directory, you can run:
 - The `mongo-questions` branch working on localhost setup and getting the questions from mongodb
 - The `vercel-deploy` branch is currently under development and aimed at deploying the app to Vercel later.
 - The `gh-pages` branch is used for GitHub Pages deployment, providing a live demo with test questions.
+
+## TODO
+
+- [ ] Lifelines
+
+  - [ ] 50:50 (easiest)
+  - [ ] Phone a friend
+  - [ ] Ask the audience
+
+- [ ] money-list's active item needs to lock to million after the player has won the game.
+- [ ] Responsiveness
+- [ ] Start screen (name)
+- [x] Winning screen
+- [ ] Make the GameWinner.js look better
+- [ ] Add rest of the sounds correct/incorrect sounds, maybe lock in answer
+- [ ] Big question pool, select difficulty
