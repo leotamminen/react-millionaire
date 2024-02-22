@@ -61,10 +61,6 @@
   box-shadow: 0 0 5px #805404, 0 0 15px #643908, 0 0 25px #e9a456;
 }
 
-.answer.correct {
-  animation: correct 4s cubic-bezier(0.4, 0, 0.2, 1) forwards;
-}
-
 @keyframes correct {
   0% {
     background: #ca6608;
@@ -84,8 +80,18 @@
   }
 }
 
+:root {
+  --animation-duration: 4s; /* Default animation duration */
+}
+
+.answer.correct {
+  animation: var(--animation-duration) correct cubic-bezier(0.4, 0, 0.2, 1)
+    forwards;
+}
+
 .answer.incorrect {
-  animation: incorrect 4s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+  animation: var(--animation-duration) incorrect cubic-bezier(0.4, 0, 0.2, 1)
+    forwards;
 }
 
 @keyframes incorrect {

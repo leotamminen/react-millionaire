@@ -13,6 +13,7 @@ const Quiz = ({
   setQuestionNumber,
   setTimeOut,
   handleBecomeMillionaire,
+  animationDuration,
 }) => {
   const [question, setQuestion] = useState(null);
   const [selectedAnswer, setSelectedAnswer] = useState(null);
@@ -79,6 +80,11 @@ const Quiz = ({
     setQuestion(questions[questionNumber - 1]);
   }, [questions, questionNumber]);
 
+  // Track when animationDuration is updated
+  useEffect(() => {
+    console.log("Animation duration updated:", animationDuration);
+  }, [animationDuration]);
+
   // Delays the execution of a callback function for any given time
   const delay = (duration, callBack) => {
     setTimeout(() => {
@@ -98,7 +104,6 @@ const Quiz = ({
         prevSelectedAnswer === item ? null : item
       );
       setClassName("answer active");
-      console.log("Selected answer:", selectedAnswer); // This works fine but the logging is "late"
     } else {
       console.log("Answers are locked!");
     }
@@ -115,19 +120,21 @@ const Quiz = ({
         // If no answer is locked in, lock the current selected answer
         setAnswersLocked(true); // Lock answers to prevent multiple clicks
 
+        // Log when an answer is locked in
+        console.log("Answer locked in:", selectedAnswer);
+
         if (selectedAnswer) {
           // If an answer is selected
           // Set the className only for the selected answer with a 3-second delay for the main animation
-          delay(3000, () => {
+          delay(0, () => {
             setClassName(
               selectedAnswer.correct ? "answer correct" : "answer incorrect"
             );
 
-            console.log("Selected Answer:", selectedAnswer);
-
             // If the locked-in answer is correct, move to the next question after 1 sec
             if (selectedAnswer.correct) {
-              delay(1000, () => {
+              // Use the same animation duration for the delay
+              delay(animationDuration * 1000, () => {
                 setQuestionNumber((prev) => prev + 1);
                 setSelectedAnswer(null);
                 setClassName("answer");
@@ -135,7 +142,8 @@ const Quiz = ({
               });
             } else {
               // If the locked-in answer is incorrect, reset className for the incorrect answer after 1 sec
-              delay(1000, () => {
+              // Use the same animation duration for the delay
+              delay(animationDuration * 1000, () => {
                 setClassName("answer");
                 setAnswersLocked(false); // Unlock answers for the next question
                 console.log("Answer was wrong!!!!");
@@ -156,8 +164,9 @@ const Quiz = ({
     <div className="quiz">
       <div className="question">{question?.question}</div>
       <div className={`answers ${answersLocked ? "answers-locked" : ""}`}>
-        {question?.answers.map((item) => (
+        {question?.answers.map((item, index) => (
           <div
+            key={index} // Add a unique key prop here
             className={`${
               answersLocked
                 ? item === selectedAnswer

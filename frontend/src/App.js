@@ -13,6 +13,7 @@ function App() {
   const [answersLocked, setAnswersLocked] = useState(false);
   const [isMillionaire, setIsMillionaire] = useState(false);
   const [earnedMoney, setEarnedMoney] = useState("0 €");
+  const [animationDuration, setAnimationDuration] = useState(4);
 
   // Update earned money when the question number changes
   useEffect(() => {
@@ -28,6 +29,14 @@ function App() {
   const handleBecomeMillionaire = () => {
     setIsMillionaire(true);
   };
+
+  // Update the animation duration only when questionNumber changes
+  useEffect(() => {
+    // Calculate the animation duration based on the questionNumber
+    const newAnimationDuration = 4 + (questionNumber - 1) * 0.5;
+    setAnimationDuration(newAnimationDuration);
+    console.log("animaation kesto: ", animationDuration);
+  }, [questionNumber]);
 
   return (
     <div className="App">
@@ -57,6 +66,7 @@ function App() {
                     setTimeOut={setTimeOut}
                     setAnswersLocked={setAnswersLocked}
                     handleBecomeMillionaire={handleBecomeMillionaire}
+                    animationDuration={animationDuration}
                   />
                 </div>
               </>
@@ -66,19 +76,18 @@ function App() {
         <MDBCol md="3" className="money">
           <MDBListGroup className="money-list">
             {prizeSums.map((item) => (
-              <>
-                <li
-                  className={
-                    questionNumber === item.id ? "item active" : "item"
-                  }
-                >
-                  <h5 className="amount">{item.amount}</h5>
-                </li>
-              </>
+              <li
+                key={item.id} // Add a unique key prop for better list rendering performance
+                className={questionNumber === item.id ? "item active" : "item"}
+              >
+                <h5 className="amount">{item.amount}</h5>
+              </li>
             ))}
           </MDBListGroup>
         </MDBCol>
       </MDBRow>
+      {/* this is for updating the CSS variable for animation duration */}
+      <style>{`:root { --animation-duration: ${animationDuration}s; }`}</style>
     </div>
   );
 }
