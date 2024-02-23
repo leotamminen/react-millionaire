@@ -19,7 +19,7 @@ To run the application locally with MongoDB integration, follow these steps:
 
 ## Available Scripts
 
-Currently in the projects `/frontend` directory, you can run:
+Currently in the projects `frontend/` directory, you can run:
 
 - `npm start`: Starts the frontend.
 - `npm run build`: Builds the app for production.
